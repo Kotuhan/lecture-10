@@ -1,0 +1,46 @@
+<html lang="en">
+    <head>
+        <style>
+            .smile {
+                width: 100px;
+                height: 100px;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                z-index: 100;
+                opacity: 0;
+                background: red;
+            }
+        </style>
+    </head>
+    
+    <body id="body">
+        <button id='button'>
+            Press me!
+        </button>
+        <a href="https://google.com">gotoGoogle</a>
+        <div class="smile" id="smile">
+
+        </div>
+        <script>
+            const width = window.innerWidth;
+            const height = window.innerHeight;
+            const body = document.getElementById('body');
+            const smile = document.getElementById('smile');
+
+            const toogleVisibility = (event) => {
+                const { x, y } = event;
+                console.log('dimenstions',{ x, y })
+                if (x > width - 100 && y > width - 100) {
+                    smile.style.opacity = 1;
+                    console.log('inside')
+                } else {
+                    smile.style.opacity = 0;
+                    console.log('outside');
+                }
+            }
+
+            body.addEventListener("mousemove",toogleVisibility)
+        </script>
+    </body>
+</html>
